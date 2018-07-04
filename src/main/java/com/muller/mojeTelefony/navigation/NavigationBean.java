@@ -18,19 +18,36 @@ public class NavigationBean {
     private String pageId;
 
     public String showPage() {
-        log.info("showPage started");
+
+//        log.info("showPage started, option: " + pageId);
+//        if (pageId == null) {
+//            log.info("showPage: " + errorMessage);
+//            return "index";
+//        } else if (pageId.equals("1")) {
+//            return "addUser";
+//        } else if (pageId.equals("2")) {
+//            return "getUser";
+//        } else if (pageId.equals("3")) {
+//            return "findUser";
+//        } else {
+//            return "index";
+//        }
+//        return check;
+        String check = "index";
         if (pageId == null) {
-            log.info("showPage, option: " + errorMessage);
-            return "index";
+//            log.info("showPage: " + errorMessage);
+            check = errorMessage;
         } else if (pageId.equals("1")) {
-            return "addUser";
+            check = "addUser";
         } else if (pageId.equals("2")) {
-            return "getUser";
+            check = "getUser";
         } else if (pageId.equals("3")) {
-            return "findUser";
+            check = "findUser";
         } else {
-            return "index";
+            check = "index";
         }
+        log.info("showPage started, option: " + check);
+        return check;
     }
 
     public String getPageId() {

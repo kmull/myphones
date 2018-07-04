@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
 
 <h:head>
 
@@ -16,5 +16,29 @@
     <f:view>
         <h:outputLabel value="Add User"/>
     </f:view>
+    <br/>
+    <br/>
+    <h:outputLabel value="Wprowadz dane użytkownika"/>
+    <br/>
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel value="podaj imie: "/>
+            <p:inputText id="nameInput" value="#{phoneBean.phoneUser.name}"/>
+
+            <h:outputLabel value="podaj nazwisko: "/>
+            <p:inputText value="#{phoneBean.phoneUser.surname}"/>
+
+            <h:outputLabel value="podaj wiek: "/>
+            <p:inputText value="#{phoneBean.phoneUser.age}"/>
+
+            <h:outputLabel value="podaj płeć: "/>
+            <p:inputText value="#{phoneBean.phoneUser.gender}"/>
+
+            <h:outputLabel value="podaj adres: "/>
+            <p:inputText value="#{phoneBean.phoneUser.address}"/>
+        </h:panelGrid>
+        <p:commandButton value="zapisz" action="#{phoneBean.addUser(phoneBean.phoneUser)}"/>
+    </h:form>
+
 </h:body>
 </html>

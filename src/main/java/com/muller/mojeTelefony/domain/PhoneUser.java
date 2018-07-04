@@ -2,8 +2,10 @@ package com.muller.mojeTelefony.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
+@NamedQuery(name = "phoneUse.getList", query = "FROM PhoneUser ")
 public class PhoneUser {
 
     @Id
@@ -17,6 +19,17 @@ public class PhoneUser {
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private String address;
+
+    @OneToMany(mappedBy = "phoneUser")
+    private List<PhoneNumber> phoneNumbers;
+
+    public List<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
 
     public long getId() {
         return id;

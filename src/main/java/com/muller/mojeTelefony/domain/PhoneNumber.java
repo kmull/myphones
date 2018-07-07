@@ -4,7 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NamedQuery(name = "phones.getList", query = "FROM PhoneNumber")
 public class PhoneNumber {
+
+    public PhoneNumber() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +20,7 @@ public class PhoneNumber {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private PhoneUser phoneUser;
+    private PhoneUser phoneUser = new PhoneUser();
 
     public PhoneUser getPhoneUser() {
         return phoneUser;
@@ -25,6 +29,14 @@ public class PhoneNumber {
     public void setPhoneUser(PhoneUser phoneUser) {
         this.phoneUser = phoneUser;
     }
+
+    //    public PhoneUser getPhoneUser() {
+//        return phoneUser;
+//    }
+//
+//    public void setPhoneUser(PhoneUser phoneUser) {
+//        this.phoneUser = phoneUser;
+//    }
 
     public long getId() {
         return id;

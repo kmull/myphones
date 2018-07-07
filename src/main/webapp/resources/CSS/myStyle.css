@@ -1,0 +1,16 @@
+
+.table-1 {
+    width: 80%;
+    margin: 0px 20px 0px 20px;
+
+}
+
+.table-1 td,
+.table-1 th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table-1 th {
+    background: tan;
+}

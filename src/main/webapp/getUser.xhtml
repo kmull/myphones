@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-
+    <h:outputStylesheet name="CSS/myStyle.css"/>
 </h:head>
 
 <h:body>
@@ -15,5 +15,47 @@
     <f:view>
         <h:outputLabel value="Get User"/>
     </f:view>
+
+    <h:form>
+        <h:dataTable value="#{phoneBean.phoneUsers}" var="o" styleClass="table-1">
+            <h:column>
+                <f:facet name="header">imie</f:facet>
+                #{o.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">nazwisk</f:facet>
+                #{o.surname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">wiek</f:facet>
+                #{o.age}
+            </h:column>
+            <h:column>
+                <f:facet name="header">płeć</f:facet>
+                #{o.gender}
+            </h:column>
+            <h:column>
+                <f:facet name="header">adres</f:facet>
+                #{o.address}
+            </h:column>
+
+        </h:dataTable>
+    </h:form>
+    <br/>
+    <br/>
+    <h:outputLabel value="Numery:"/>
+    <h:form>
+        <h:dataTable value="#{phoneBean.phoneNumbersData}" var="n" styleClass="table-1">
+            <h:column>
+                <f:facet name="header">typ</f:facet>
+                #{n.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">numer</f:facet>
+                #{n.phone}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
 </h:body>
 </html>

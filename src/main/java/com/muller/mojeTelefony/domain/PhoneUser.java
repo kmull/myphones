@@ -5,8 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "phoneUse.getList", query = "FROM PhoneUser ")
+@NamedQuery(name = "users.getList", query = "FROM PhoneUser ")
 public class PhoneUser {
+
+    public PhoneUser() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

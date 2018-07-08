@@ -33,7 +33,7 @@ public class NavigationBean {
 //            return "index";
 //        }
 //        return check;
-        String check = "index";
+        String check;
         if (pageId == null) {
 //            log.info("showPage: " + errorMessage);
             check = errorMessage;
@@ -43,6 +43,12 @@ public class NavigationBean {
             check = "getUser";
         } else if (pageId.equals("3")) {
             check = "findUser";
+        } else if (pageId.equals("4")) {
+            check = "addUser_ver2";
+        } else if (pageId.equals("5")) {
+            check = "getUser_ver2";
+        } else if (pageId.equals("6")) {
+            check = "getPhones";
         } else {
             check = "index";
         }

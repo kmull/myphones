@@ -1,15 +1,16 @@
 package com.muller.mojeTelefony.repository;
 
-import com.muller.mojeTelefony.domain.PhoneNumber;
-import com.muller.mojeTelefony.domain.PhoneUser;
+import com.muller.mojeTelefony.domain.Phone;
 import com.muller.mojeTelefony.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Stateless
 public class PhoneRepository {
 
     Logger log = LoggerFactory.getLogger(PhoneRepository.class);
@@ -26,7 +27,7 @@ public class PhoneRepository {
         return entityManager.createNamedQuery("user.getList").getResultList();
     }
 
-    public List<PhoneNumber> getPhonesTable() {
+    public List<Phone> getPhonesTable() {
         return entityManager.createNamedQuery("phone.getList").getResultList();
     }
 

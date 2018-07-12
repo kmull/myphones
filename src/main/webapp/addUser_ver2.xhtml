@@ -30,6 +30,9 @@
 
             <h:outputLabel value="podaj nazwisko: "/>
             <p:inputText value="#{UsersPhoneManagedBean.user.surname}"/>
+
+            <h:outputLabel value="podaj id: "/>
+            <p:inputText value="#{UsersPhoneManagedBean.phones}"/>
         </h:panelGrid>
         <h:commandButton value="zapisz" action="#{UsersPhoneManagedBean.addUser(UsersPhoneManagedBean.user)}" />
     </h:form>

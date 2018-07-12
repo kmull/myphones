@@ -38,6 +38,25 @@
     <br/>
     <br/>
 
+    <h:outputLabel value="Numery:"/>
+    <br/>
+    <h:form>
+        <h:dataTable value="#{UsersPhoneManagedBean.phones}" var="p"
+                     styleClass="table-1">
+            <h:column>
+                <f:facet name="header">id</f:facet>
+                #{p.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">type</f:facet>
+                #{p.type}
+            </h:column>
+            <h:column>
+                <f:facet name="header">number</f:facet>
+                #{p.number}
+            </h:column>
+        </h:dataTable>
+    </h:form>
 
 
 </h:body>

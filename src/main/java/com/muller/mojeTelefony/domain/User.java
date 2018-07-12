@@ -2,7 +2,6 @@ package com.muller.mojeTelefony.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "userData")
@@ -17,9 +16,16 @@ public class User {
     private String name;
     private String surname;
 
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<Phone> phones = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_phone",orphanRemoval = true)
+    private List<Phone> phones;
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
+    }
 
     public long getId() {
         return id;
@@ -45,11 +51,4 @@ public class User {
         this.surname = surname;
     }
 
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
-    }
 }

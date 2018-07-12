@@ -14,6 +14,8 @@
     <ui:include src="menu.xhtml"/>
 
     <h:outputLabel value="Numery:"/>
+
+
     <br/>
     <h:form>
         <h:dataTable value="#{UsersPhoneManagedBean.phones}" var="p"
@@ -23,6 +25,14 @@
                 #{p.id}
             </h:column>
         </h:dataTable>
+    </h:form>
+
+    <br/>
+    <h:form>
+        <h:selectOneListbox>
+            <f:selectItems value="#{UsersPhoneManagedBean.userList}" var = "u"
+            itemLabel="#{u}"/>
+        </h:selectOneListbox>
     </h:form>
 
 </h:body>

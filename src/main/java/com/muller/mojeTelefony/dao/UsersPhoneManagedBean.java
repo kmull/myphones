@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -25,21 +26,35 @@ public class UsersPhoneManagedBean {
 
     private User user = new User();
     private Phone phone = new Phone();
+    private boolean clickedMessage;
+    @ManagedProperty(name = "onClick", value = "#{onClick}")
+    private String onClick;
 
     private List<String> userList = new ArrayList<>();
     private Map<String, String> userMap = new HashMap<>();
     public String object;
 
+//    public String asd(){
+//
+//    }
+
+    public boolean clickedMessageMethod() {
+        clickedMessage = true;
+        return clickedMessage;
+    }
+
     public void addUser(User user) {
         phoneRepository.addUser(user);
+        user = new User();
     }
 
     public List<User> getUsers() {
         log.info(String.valueOf(userList.size()));
         userList.removeAll(userList);
+        userList.add("    --- Select ---   ");
 
         for (User tmpUser : phoneRepository.getUsersTable()) {
-            userList.add(tmpUser.getName() + " " + tmpUser.getSurname());
+            userList.add(tmpUser.getName() + "-" + tmpUser.getSurname());
         }
         return phoneRepository.getUsersTable();
     }
@@ -72,5 +87,21 @@ public class UsersPhoneManagedBean {
 
     public void setPhone(Phone phone) {
         this.phone = phone;
+    }
+
+    public boolean isClickedMessage() {
+        return clickedMessage;
+    }
+
+    public void setClickedMessage(boolean clickedMessage) {
+        this.clickedMessage = clickedMessage;
+    }
+
+    public String getOnClick() {
+        return onClick;
+    }
+
+    public void setOnClick(String onClick) {
+        this.onClick = onClick;
     }
 }

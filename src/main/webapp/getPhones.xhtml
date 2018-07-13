@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <h:outputStylesheet name="CSS/myStyle.css"/>
@@ -29,10 +29,18 @@
 
     <br/>
     <h:form>
-        <h:selectOneListbox>
-            <f:selectItems value="#{UsersPhoneManagedBean.userList}" var = "u"
-            itemLabel="#{u}"/>
-        </h:selectOneListbox>
+        <h:selectOneMenu value="#{UsersPhoneManagedBean.onClick}">
+            <f:selectItems value="#{UsersPhoneManagedBean.userList}"/>
+        </h:selectOneMenu>
+
+        <br/>
+        <h:commandButton value="pokaż" action="#{UsersPhoneManagedBean.clickedMessageMethod}"/>
+    </h:form>
+
+    <h:form>
+        <c:if test="#{UsersPhoneManagedBean.clickedMessage == true}">
+            asd
+        </c:if>
     </h:form>
 
 </h:body>

@@ -45,7 +45,11 @@
                      styleClass="table-1">
             <h:column>
                 <f:facet name="header">id</f:facet>
-                #{p.id}
+                #{p.user_phone.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">name</f:facet>
+                #{p.user_phone.name} #{p.user_phone.surname}
             </h:column>
             <h:column>
                 <f:facet name="header">type</f:facet>

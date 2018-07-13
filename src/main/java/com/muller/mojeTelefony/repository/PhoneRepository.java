@@ -19,6 +19,10 @@ public class PhoneRepository {
     private EntityManager entityManager;
 
     public void addUser(User user) {
+//        if(user == null){
+//            log.info("user is null");
+//            return;
+//        }
         entityManager.persist(user);
         log.info("User: " + user.getName() + " " + user.getSurname() + " added.");
     }
